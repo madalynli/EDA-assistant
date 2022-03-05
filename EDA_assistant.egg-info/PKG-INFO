@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: EDA-assistant
+Version: 0.0.1
+Summary: This package allows users to create an exploratory data analysis pdf report from any data set
+Home-page: https://github.com/madalynli/EDA-assistant
+Author: Madalyn Li
+Author-email: mli2324@uw.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+Read Me File:
+
+This read me file is a temporary placeholder.<br> 
+I plan to add more to this file as I continue to document and develop this package.
+

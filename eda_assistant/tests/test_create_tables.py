@@ -1,0 +1,40 @@
+"""
+Unit tests for create_tables.py
+"""
+
+import unittest
+import pandas as pd
+from eda_assistant import create_tables
+
+TEST_DIR = 'test_create_tables_results'
+
+
+class TestCreateTable(unittest.TestCase):
+    """
+    Tests creating summary statistics tables in create_tables.py
+    """
+
+    def setUp(self):
+        self.df = pd.read_csv('test_example_datasets/cereal.csv')
+
+    def test_create_df_summary(self):
+        """
+        Tests create_df_summary function. This function compares the results of the cereal.csv
+        data set passed through the function to another csv file containing the correct format
+        and values for the df summary table.
+        """
+        test_create_df_summary_file_name = 'test_create_df_summary_cereal_results.csv'
+        test_data_df_summary = pd.read_csv(TEST_DIR + '/' + test_create_df_summary_file_name, index_col=0)
+        comparison_df_summary = create_tables.create_df_summary(self.df).astype(str)
+        pd.testing.assert_frame_equal(test_data_df_summary, comparison_df_summary)
+
+    def test_create_var_summary(self):
+        """
+        Tests create_var_summary function. This function compares the results of the cereal.csv
+        data set passed through the function to another csv file containing the correct format
+        and values for the var summary table.
+        """
+        test_create_var_summary_file_name = 'test_create_var_summary_cereal_results.csv'
+        test_data_var_summary = pd.read_csv(TEST_DIR + '/' + test_create_var_summary_file_name, index_col=0)
+        comparison_var_summary = create_tables.create_var_summary(self.df).astype(str)
+        pd.testing.assert_frame_equal(test_data_var_summary, comparison_var_summary)
