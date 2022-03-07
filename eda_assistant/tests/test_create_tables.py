@@ -3,6 +3,7 @@ Unit tests for create_tables.py
 """
 
 import unittest
+import os
 import pandas as pd
 from eda_assistant import create_tables
 
@@ -15,7 +16,9 @@ class TestCreateTable(unittest.TestCase):
     """
 
     def setUp(self):
-        self.df = pd.read_csv('test_example_datasets/cereal.csv')
+        package_file_path = os.path.dirname(os.path.dirname(os.getcwd()))
+        dataset_path_name = package_file_path + '/data/cereal.csv'
+        self.df = pd.read_csv(dataset_path_name)
 
     def test_create_df_summary(self):
         """
@@ -26,7 +29,7 @@ class TestCreateTable(unittest.TestCase):
         test_create_df_summary_file_name = 'test_create_df_summary_cereal_results.csv'
         test_data_df_summary = pd.read_csv(TEST_DIR + '/' + test_create_df_summary_file_name, index_col=0)
         comparison_df_summary = create_tables.create_df_summary(self.df).astype(str)
-        pd.testing.assert_frame_equal(test_data_df_summary, comparison_df_summary)
+        pd.testing.assert_frame_equal(test_data_df_summary, comparison_df_summary, atol=1)
 
     def test_create_var_summary(self):
         """
@@ -37,4 +40,4 @@ class TestCreateTable(unittest.TestCase):
         test_create_var_summary_file_name = 'test_create_var_summary_cereal_results.csv'
         test_data_var_summary = pd.read_csv(TEST_DIR + '/' + test_create_var_summary_file_name, index_col=0)
         comparison_var_summary = create_tables.create_var_summary(self.df).astype(str)
-        pd.testing.assert_frame_equal(test_data_var_summary, comparison_var_summary)
+        pd.testing.assert_frame_equal(test_data_var_summary, comparison_var_summary, atol=1)

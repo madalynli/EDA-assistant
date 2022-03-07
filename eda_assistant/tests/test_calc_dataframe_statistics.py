@@ -3,6 +3,7 @@ Unit tests for calc_dataframe_statistics.py
 """
 
 import unittest
+import os
 import pandas as pd
 from eda_assistant import calc_dataframe_statistics
 
@@ -13,7 +14,9 @@ class TestCalcDataFrameStatistics(unittest.TestCase):
     """
 
     def setUp(self):
-        self.df = pd.read_csv('test_example_datasets/cereal.csv')
+        package_file_path = os.path.dirname(os.path.dirname(os.getcwd()))
+        dataset_path_name = package_file_path + '/data/cereal.csv'
+        self.df = pd.read_csv(dataset_path_name)
 
     def tearDown(self):
         self.df = None
