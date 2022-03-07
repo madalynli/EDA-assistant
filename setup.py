@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='EDA-assistant',
-    version='0.0.1',
+    version='0.0.2',
     author='Madalyn Li',
     author_email='mli2324@uw.edu',
     description='This package allows users to create an exploratory data analysis pdf report from any data set',
