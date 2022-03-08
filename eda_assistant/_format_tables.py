@@ -2,7 +2,7 @@
 A python module that formats the summary table containing calculated summary statistic values
 for the data set and its variables. The module contains the summary table labels and format
 standards for the data set summary statistics table and the variable summary statistics table
-in create_tables.py
+in _create_tables.py
 """
 
 df_summary_labels = ['No. of Columns', 'No. of Rows', 'Total Value Count', 'Count of NaNs', 'Percent of NaNs',

@@ -1,18 +1,18 @@
 """
-Unit tests for create_tables.py
+Unit tests for _create_tables.py
 """
 
 import unittest
 import os
 import pandas as pd
-from eda_assistant import create_tables
+from eda_assistant import _create_tables
 
 TEST_DIR = 'test_create_tables_results'
 
 
 class TestCreateTable(unittest.TestCase):
     """
-    Tests creating summary statistics tables in create_tables.py
+    Tests creating summary statistics tables in _create_tables.py
     """
 
     def setUp(self):
@@ -28,7 +28,7 @@ class TestCreateTable(unittest.TestCase):
         """
         test_create_df_summary_file_name = 'test_create_df_summary_cereal_results.csv'
         test_data_df_summary = pd.read_csv(TEST_DIR + '/' + test_create_df_summary_file_name, index_col=0)
-        comparison_df_summary = create_tables.create_df_summary(self.df).astype(str)
+        comparison_df_summary = _create_tables.create_df_summary(self.df).astype(str)
         pd.testing.assert_frame_equal(test_data_df_summary, comparison_df_summary, atol=1)
 
     def test_create_var_summary(self):
@@ -39,5 +39,5 @@ class TestCreateTable(unittest.TestCase):
         """
         test_create_var_summary_file_name = 'test_create_var_summary_cereal_results.csv'
         test_data_var_summary = pd.read_csv(TEST_DIR + '/' + test_create_var_summary_file_name, index_col=0)
-        comparison_var_summary = create_tables.create_var_summary(self.df).astype(str)
+        comparison_var_summary = _create_tables.create_var_summary(self.df).astype(str)
         pd.testing.assert_frame_equal(test_data_var_summary, comparison_var_summary, atol=1)

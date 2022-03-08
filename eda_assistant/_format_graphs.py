@@ -2,7 +2,7 @@
 A python module that formats the uni-variate and multi-variate graphs for the data set. This module
 contains the format standards for the histogram plot(s) on numerical data, the count bar plot(s) on
 categorical data, the set criteria for graphing the count bar plot(s) for categorical data in
-create_graphs.py, the format standard for the correlation matrix heat map plot, and the format
+_create_graphs.py, the format standard for the correlation matrix heat map plot, and the format
 standard for the pair plot.
 
 The reason for setting a limit on the categorical data criteria for graphing count bar plot(s) is
@@ -12,8 +12,8 @@ the categorical data criteria is default set to less than or equal to 10.
 """
 
 import matplotlib.pyplot as plt
-from eda_assistant import calc_dataframe_statistics
-from eda_assistant import calc_variable_statistics
+from eda_assistant import _calc_dataframe_statistics
+from eda_assistant import _calc_variable_statistics
 
 
 def format_numeric(fig, plot, col):
@@ -44,8 +44,8 @@ def is_categorical_bar(col, set_limit=10):
             True if variable column is categorical and if the number of unique values in it
             is less than set_limit and False otherwise
     """
-    if calc_variable_statistics.get_type(col) == 'object' and \
-            calc_variable_statistics.count_unique(col) <= set_limit:
+    if _calc_variable_statistics.get_type(col) == 'object' and \
+            _calc_variable_statistics.count_unique(col) <= set_limit:
         return True
     else:
         return False
@@ -108,6 +108,6 @@ def format_pair(plot_pair, df):
         axes.set_ylabel(axes.get_ylabel(), rotation=0, horizontalalignment='right')
         axes.set_xlabel(axes.get_xlabel(), rotation=90, horizontalalignment='right')
     plot_pair = plt.title('Pair Plots:', fontsize=30, weight='bold', color='k',
-                          x=-1 * calc_dataframe_statistics.count_numeric(df) / 2,
-                          y=calc_dataframe_statistics.count_numeric(df) * 1.1)
+                          x=-1 * _calc_dataframe_statistics.count_numeric(df) / 2,
+                          y=_calc_dataframe_statistics.count_numeric(df) * 1.1)
     return plot_pair.figure

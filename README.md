@@ -42,14 +42,14 @@ The datasets used in this repository for testing and demonstration are listed al
 EDA-assistant/
   |- eda_assistant/
     |- __init__.py
-    |- calc_dataframe_statistics.py
-    |- calc_variable_statistics.py
-    |- create_graphs.py
-    |- create_tables.py
+    |- _calc_dataframe_statistics.py
+    |- _calc_variable_statistics.py
+    |- _create_graphs.py
+    |- _create_tables.py
+    |- _format_eda_report.py
+    |- _format_graphs.py
+    |- _format_tables.py
     |- eda_eassistant.py
-    |- format_eda_report.py
-    |- format_graphs.py
-    |- format_tables.py
     |- tests/
       |- __init__.py
       |- test_calc_dataframe_statistics.py

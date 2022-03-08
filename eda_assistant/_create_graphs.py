@@ -7,9 +7,9 @@ are added into the final eda pdf report.
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-from eda_assistant import calc_dataframe_statistics
-from eda_assistant import calc_variable_statistics
-from eda_assistant import format_graphs
+from eda_assistant import _calc_dataframe_statistics
+from eda_assistant import _calc_variable_statistics
+from eda_assistant import _format_graphs
 
 
 def plot_numeric_hist(df):
@@ -22,7 +22,7 @@ def plot_numeric_hist(df):
         Returns:
             fig (figure): figure containing histogram plot(s) for numeric variables in df
     """
-    n = calc_dataframe_statistics.count_numeric(df)
+    n = _calc_dataframe_statistics.count_numeric(df)
     if n == 0:
         return None
     else:
@@ -30,12 +30,12 @@ def plot_numeric_hist(df):
         counter = 0
         for i in range(len(df.columns)):
             col = df.iloc[:, i]
-            if calc_variable_statistics.is_numeric(col):
+            if _calc_variable_statistics.is_numeric(col):
                 if n == 1:
                     plot = sns.histplot(data=df, x=col.name)
                 else:
                     plot = sns.histplot(data=df, x=col.name, ax=ax[counter])
-                format_graphs.format_numeric(fig, plot, col)
+                _format_graphs.format_numeric(fig, plot, col)
                 counter += 1
     return fig
 
@@ -52,7 +52,7 @@ def plot_categorical_bar(df):
         Returns:
             fig (figure): figure containing count bar plot(s) for categorical variables in df
     """
-    n = format_graphs.count_categorical_bar(df)
+    n = _format_graphs.count_categorical_bar(df)
     if n == 0:
         return None
     else:
@@ -60,12 +60,12 @@ def plot_categorical_bar(df):
         counter = 0
         for i in range(len(df.columns)):
             col = df.iloc[:, i]
-            if format_graphs.is_categorical_bar(col, set_limit=10):
+            if _format_graphs.is_categorical_bar(col, set_limit=10):
                 if n == 1:
                     plot = sns.countplot(data=df, x=col.name)
                 else:
                     plot = sns.countplot(data=df, x=col.name, ax=ax[counter])
-                format_graphs.format_categorical(fig, plot, col)
+                _format_graphs.format_categorical(fig, plot, col)
                 counter += 1
     return fig
 
@@ -81,12 +81,12 @@ def plot_corr_graph(df):
         Returns:
             plot_corr (figure): figure containing correlation matrix heat map plot for df
     """
-    if len(df) == 0 or calc_dataframe_statistics.count_numeric(df) <= 1:
+    if len(df) == 0 or _calc_dataframe_statistics.count_numeric(df) <= 1:
         return None
     else:
         corr = df.corr()
         plot_corr = sns.heatmap(corr, annot=True, fmt='.0f')
-        format_graphs.format_corr()
+        _format_graphs.format_corr()
         return plot_corr.figure
 
 
@@ -102,10 +102,10 @@ def plot_pair_graph(df, set_limit=10):
             plot_pair (figure): figure containing pair plots for df
     """
     if len(df) == 0 \
-            or calc_dataframe_statistics.count_numeric(df) >= set_limit \
-            or calc_dataframe_statistics.count_numeric(df) <= 1:
+            or _calc_dataframe_statistics.count_numeric(df) >= set_limit \
+            or _calc_dataframe_statistics.count_numeric(df) <= 1:
         return None
     else:
         plot_pair = sns.pairplot(data=df)
-        format_graphs.format_pair(plot_pair, df)
+        _format_graphs.format_pair(plot_pair, df)
         return plot_pair.figure

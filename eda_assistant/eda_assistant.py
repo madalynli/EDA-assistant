@@ -6,9 +6,9 @@ all standard exploratory data analysis summary statistics and graphs.
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
-from eda_assistant import create_tables
-from eda_assistant import create_graphs
-from eda_assistant import format_eda_report
+from eda_assistant import _create_tables
+from eda_assistant import _create_graphs
+from eda_assistant import _format_eda_report
 import os
 import webbrowser
 
@@ -61,32 +61,32 @@ class EDA:
             raise Exception('DataFrame is empty. Unable to create report.')
         else:
             with PdfPages(save_file_name) as pdf:
-                df_summary = create_tables.create_df_summary(self.df)
-                df_summary_table = format_eda_report.format_report_df_table(df_summary)
+                df_summary = _create_tables.create_df_summary(self.df)
+                df_summary_table = _format_eda_report.format_report_df_table(df_summary)
                 pdf.savefig(df_summary_table, bbox_inches='tight', pad_inches=2.5)
                 plt.close()
 
-                var_summary = create_tables.create_var_summary(self.df)
-                var_summary_table = format_eda_report.format_report_var_table(var_summary)
+                var_summary = _create_tables.create_var_summary(self.df)
+                var_summary_table = _format_eda_report.format_report_var_table(var_summary)
                 pdf.savefig(var_summary_table, bbox_inches='tight', pad_inches=2)
                 plt.close()
 
-                numeric_hist = create_graphs.plot_numeric_hist(self.df)
+                numeric_hist = _create_graphs.plot_numeric_hist(self.df)
                 if numeric_hist is not None:
                     pdf.savefig(numeric_hist, bbox_inches='tight', pad_inches=2.5)
                     plt.close()
 
-                categorical_bar = create_graphs.plot_categorical_bar(self.df)
+                categorical_bar = _create_graphs.plot_categorical_bar(self.df)
                 if categorical_bar is not None:
                     pdf.savefig(categorical_bar, bbox_inches='tight', pad_inches=2.5)
                     plt.close()
 
-                corr_graph = create_graphs.plot_corr_graph(self.df)
+                corr_graph = _create_graphs.plot_corr_graph(self.df)
                 if corr_graph is not None:
                     pdf.savefig(corr_graph, bbox_inches='tight', pad_inches=1.5)
                     plt.close()
 
-                pair_graph = create_graphs.plot_pair_graph(self.df)
+                pair_graph = _create_graphs.plot_pair_graph(self.df)
                 if pair_graph is not None:
                     pdf.savefig(pair_graph, bbox_inches='tight', pad_inches=1.5)
                     plt.close()
