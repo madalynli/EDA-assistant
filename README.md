@@ -1,5 +1,5 @@
-#EDA-assistant
-##Background
+# EDA-assistant
+## Background
 The goal of this project is to help data scientists or data analysts perform 
 easy and quick exploratory data analysis in Python. With the current process 
 for EDA in Python involving importing many packages and writing multiple lines 
@@ -10,7 +10,7 @@ produced currently contains tables for data set and variable summary statistics
 calculations, bar graphs for visualizing data distribution, a correlation matrix 
 heat map plot, and a scatter pair plot. 
 
-##Data
+## Data
 The datasets used in this repository for testing and demonstration are listed along with their sources below:
 
 1. Iris Flower Dataset<br>
@@ -26,7 +26,7 @@ The datasets used in this repository for testing and demonstration are listed al
    - **Source:** [Kaggle 80 Cereals Dataset](https://www.kaggle.com/crawford/80-cereals) <br>
    - **Purpose:** This file is used for the [test code](https://github.com/madalynli/EDA-assistant/tree/master/eda_assistant/tests) in the package
 
-##Software
+## Software
 
 **Programming Language(s):** <br>
 [Python](https://www.python.org/)
@@ -37,7 +37,7 @@ The datasets used in this repository for testing and demonstration are listed al
 [pandas](https://pandas.pydata.org/) == 1.4.1 <br>
 [seaborn](https://seaborn.pydata.org/) == 0.11.2 <br>
 
-##Package Structure
+## Package Structure
 ```
 EDA-assistant/
   |- eda_assistant/
@@ -81,16 +81,16 @@ EDA-assistant/
   |- setup.py
 ```
 
-##Installation
+## Installation
 To install this package, simply enter the following command: 
 ```
 pip install EDA-assistant
 ```
 
-##Usage
+## Usage
 To see how to use the package to create the EDA report, refer to the [example notebook](https://github.com/madalynli/EDA-assistant/blob/master/examples/demo_EDA_assistant.ipynb)
 
-##Output Preview
+## Output Preview
 Below contains some screenshots for the sample output of the EDA report created with this package. 
 These tables and graphs seen below are associated with the data set IRIS.csv (source listed above):
 ![Data Set Summary Statistics](https://github.com/madalynli/EDA-assistant/blob/master/examples/demo_iris_eda_report_df_table.png?raw=true)
@@ -101,5 +101,5 @@ These tables and graphs seen below are associated with the data set IRIS.csv (so
 ![Scatter Pair Plot](https://github.com/madalynli/EDA-assistant/blob/master/examples/demo_iris_eda_report_pair.png?raw=true)
 
 
-##License
+## License
 [MIT License](https://github.com/madalynli/EDA-assistant/blob/master/LICENSE)
