@@ -1,17 +1,17 @@
 # EDA-assistant
 ## Background
-The goal of this project is to help data scientists or data analysts perform 
-easy and quick exploratory data analysis in Python. With the current process 
-for EDA in Python involving importing many packages and writing multiple lines 
-of code, the EDA-assistant package makes this process more simple for the end user 
-with just a single import and two lines of code to produce a PDF report containing 
-all standard EDA summary statistics and graphs. Specifically, the EDA PDF report 
-produced currently contains tables for data set and variable summary statistics 
-calculations, bar graphs for visualizing data distribution, a correlation matrix 
-heat map plot, and a scatter pair plot. 
+The goal of this project is to help data scientists or data analysts perform easy and 
+quick exploratory data analysis in Python. With the current process for EDA in Python 
+involving importing many packages and writing multiple lines of code, the EDA-assistant 
+package makes this process more simple for the end user with just a single import and 
+two lines of code to produce a PDF report containing all standard EDA summary statistics 
+and graphs. Specifically, the EDA PDF report produced currently contains tables for 
+dataset and variable summary statistics calculations, bar graphs for visualizing data 
+distribution, a correlation matrix heat map plot, and a scatter pair plot. 
 
 ## Data
-The datasets used in this repository for testing and demonstration are listed along with their sources below:
+The datasets used in this repository for testing and demonstration are listed 
+along with their sources below:
 
 1. Iris Flower Dataset<br>
    - **File Name:** [IRIS.csv](https://github.com/madalynli/EDA-assistant/blob/master/data/IRIS.csv) <br>
@@ -32,10 +32,20 @@ The datasets used in this repository for testing and demonstration are listed al
 [Python](https://www.python.org/)
 
 **Python Packages:** <br>
-[matplotlib](https://matplotlib.org/) == 3.5.1 <br>
-[numpy](https://numpy.org/) == 1.22.2 <br>
-[pandas](https://pandas.pydata.org/) == 1.4.1 <br>
-[seaborn](https://seaborn.pydata.org/) == 0.11.2 <br>
+cycler==0.11.0 <br>
+fonttools==4.29.1 <br>
+kiwisolver==1.3.2 <br>
+matplotlib==3.5.1 <br>
+numpy==1.22.2 <br>
+packaging==21.3 <br>
+pandas==1.4.1 <br>
+Pillow==9.0.1 <br>
+pyparsing==3.0.7 <br>
+python-dateutil==2.8.2 <br>
+pytz==2021.3 <br>
+scipy==1.8.0 <br>
+seaborn==0.11.2 <br>
+six==1.16.0 <br>
 
 ## Package Structure
 ```
@@ -55,18 +65,21 @@ EDA-assistant/
       |- test_calc_dataframe_statistics.py
       |- test_calc_variable_statistics.py
       |- test_create_tables.py
+      |- test_eda_assistant.py
+      |- test_format_graphs.py
+      |- test_format_tables.py
       |- test_create_tables_results/
         |- test_create_df_summary_cereal_results.csv
-        |- test_cereal_var_summary_results.csv
+        |- test_create_var_summary_cereal_results.csv
   |- data/
     |- IRIS.csv
     |- WineQT.csv
     |- cereal.csv
   |- docs/
     |- EDA_assistant_final_presentation.pdf
+    |- EDA_assistant_written_report.pdf
   |- examples/
     |- demo_EDA_assistant.ipynb
-    |- demo_iris_eda_report.pdf
     |- demo_iris_eda_report.pdf
     |- demo_iris_eda_report_cat_hist.png
     |- demo_iris_eda_report_corr.png
@@ -87,6 +100,14 @@ To install this package, simply enter the following command:
 pip install EDA-assistant
 ```
 
+## Assumptions and Dependencies
+- Dataset file to create an EDA class must be in a .csv file format
+- The variable types in the dataset are determined with Panda’s dtype function, which may not always identify the correct variable type 100% of the time 
+- The categorical bar plots in the EDA report will not be plotted unless the number of unique variables in the categorical column is less than or equal to 10. This is because as the number of bars surpass 10, the bar plot becomes more compressed and thus harder to read 
+- The scatter pair plot in the EDA report will not be plotted unless the number of numeric variables in the dataset is less than or equal to 10. This is because as the number of variables surpass 10, the processing time for the plot takes much longer to produce 
+- The PDF format of the EDA report may vary widely; the title of the pages may sometimes overlap the title of the graphs or have a large white-space gap between them
+
+
 ## Usage
 To see how to use the package to create the EDA report, refer to the [example notebook](https://github.com/madalynli/EDA-assistant/blob/master/examples/demo_EDA_assistant.ipynb)
 
@@ -103,3 +124,4 @@ These tables and graphs seen below are associated with the data set IRIS.csv (so
 
 ## License
 [MIT License](https://github.com/madalynli/EDA-assistant/blob/master/LICENSE)
+
