@@ -16,8 +16,7 @@ class TestCreateTables(unittest.TestCase):
     """
 
     def setUp(self):
-        package_file_path = os.path.dirname(os.path.dirname(os.getcwd()))
-        dataset_path_name = package_file_path + '/data/cereal.csv'
+        dataset_path_name = os.getcwd() + '/data/cereal.csv'
         self.df = pd.read_csv(dataset_path_name)
 
     def test_create_df_summary(self):
