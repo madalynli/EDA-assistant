@@ -32,20 +32,10 @@ along with their sources below:
 [Python](https://www.python.org/)
 
 **Python Packages:** <br>
-cycler==0.11.0 <br>
-fonttools==4.29.1 <br>
-kiwisolver==1.3.2 <br>
-matplotlib==3.5.1 <br>
-numpy==1.22.2 <br>
-packaging==21.3 <br>
-pandas==1.4.1 <br>
-Pillow==9.0.1 <br>
-pyparsing==3.0.7 <br>
-python-dateutil==2.8.2 <br>
-pytz==2021.3 <br>
-scipy==1.8.0 <br>
+matplotlib==3.3.4 <br>
+numpy==1.19.5 <br>
+pandas==1.1.5 <br>
 seaborn==0.11.2 <br>
-six==1.16.0 <br>
 
 ## Package Structure
 ```
@@ -68,13 +58,13 @@ EDA-assistant/
       |- test_eda_assistant.py
       |- test_format_graphs.py
       |- test_format_tables.py
-      |- test_create_tables_results/
-        |- test_create_df_summary_cereal_results.csv
-        |- test_create_var_summary_cereal_results.csv
   |- data/
     |- IRIS.csv
     |- WineQT.csv
     |- cereal.csv
+    |- test_create_tables_results/
+      |- test_create_df_summary_cereal_results.csv
+      |- test_create_var_summary_cereal_results.csv
   |- docs/
     |- EDA_assistant_final_presentation.pdf
     |- EDA_assistant_written_report.pdf
@@ -90,6 +80,7 @@ EDA-assistant/
     |- demo_wine_eda_report.pdf
   |- LICENSE
   |- README.md
+  |- .travis.yml
   |- requirements.txt
   |- setup.py
 ```
