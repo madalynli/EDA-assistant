@@ -7,7 +7,7 @@ import os
 import pandas as pd
 from eda_assistant import _create_tables
 
-TEST_DIR = 'test_create_tables_results'
+TEST_DIR = 'test_create_tables_results/'
 
 
 class TestCreateTables(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestCreateTables(unittest.TestCase):
         """
         test_create_df_summary_file_name = \
             'test_create_df_summary_cereal_results.csv'
-        test_data_df_summary = pd.read_csv(TEST_DIR + '/' +
+        test_data_df_summary = pd.read_csv(os.getcwd() + '/data/' + TEST_DIR +
                                            test_create_df_summary_file_name,
                                            index_col=0)
         comparison_df_summary = _create_tables.\
@@ -44,7 +44,7 @@ class TestCreateTables(unittest.TestCase):
         """
         test_create_var_summary_file_name = \
             'test_create_var_summary_cereal_results.csv'
-        test_data_var_summary = pd.read_csv(TEST_DIR + '/' +
+        test_data_var_summary = pd.read_csv(os.getcwd() + '/data/' + TEST_DIR +
                                             test_create_var_summary_file_name,
                                             index_col=0)
         comparison_var_summary = _create_tables.\
